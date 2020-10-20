@@ -4,22 +4,33 @@ namespace Lab_01
 {
     class Person
     {
-        public string Name { private set; get; }
-        public int CountOfCompanies { set; get; }
+        public string fname { private set; get; }
+        public string sname { private set; get; }
+        public string tname { private set; get; }
 
-        public Person (string name)
+
+        public int СountOfCompanies { set; get; }
+
+        public Person (string sname, string fname, string tname)
         {
-            this.CountOfCompanies = 0;
-            this.Name = name;
+            this.СountOfCompanies = 0;
+            this.fname = fname;
+            this.sname = sname;
+            this.tname = tname;
         }
 
-        public bool EnterCompany(Company company)
+        public void GetAJob(Company company)
         {
-            return company.AddWorker(this);
+            company.AddWorker(this);
         }
-        public bool ExitCompany(Company company)
+        public void Quit(Company company)
         {
-            return company.DeleteWorker(this);
+            company.DeleteWorker(this);
+        }
+
+        public override string ToString()
+        {
+            return $"{sname} {fname} {tname} работает в {СountOfCompanies} компаниях";
         }
     }
 }
